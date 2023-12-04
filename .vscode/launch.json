@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (lib\\Screen\\Login\\login_screen.dart)",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib\\Screen\\Login\\login_screen.dart"
+        },
+        {
+            "name": "Flutter (lib\\Screen\\Login\\login_screen.dart)",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib\\Screen\\Login\\login_screen.dart"
+        }
+    ]
+}
