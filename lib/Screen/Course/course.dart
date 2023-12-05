@@ -11,10 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home: CoursePage(), routes: {
-      '/profile': (context) => UserProfilePage(),
-      '/lesson': (context) => LessonPage(),
-      '/course': (context) => CoursePage(),
-      '/home': (context) => HomePage(),
+      '/Profile': (context) => UserProfilePage(),
+      '/Lesson': (context) => LessonPage(),
+      '/Course': (context) => CoursePage(),
+      '/Home': (context) => HomePage(),
     });
   }
 }
@@ -40,7 +40,7 @@ class CoursePage extends StatelessWidget {
             onPressed: () {
               // Handle user icon press
               // You can implement navigation or other actions here
-              Navigator.pushNamed(context, '/profile');
+              Navigator.pushNamed(context, '/Profile');
             },
           ),
           IconButton(
@@ -172,7 +172,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
       child: DropdownButton(
         value: _selectedItem,
         items: [
-          'Menu', // Added 'Menu' as the first item
+          'Menu',
           'Home',
           'Course',
           'Lesson',
@@ -194,17 +194,9 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           if (newValue != null) {
             setState(() {
               _selectedItem = newValue;
-              if (_selectedItem != 'Home') {
+              if (_selectedItem != 'Menu') {
                 // Navigate to the selected route
-                Navigator.pushReplacementNamed(context, '/home');
-              }
-              if (_selectedItem != 'Course') {
-                // Navigate to the selected route
-                Navigator.pushReplacementNamed(context, '/course');
-              }
-              if (_selectedItem != 'Lesson') {
-                // Navigate to the selected route
-                Navigator.pushReplacementNamed(context, '/lesson');
+                Navigator.pushReplacementNamed(context, '/$_selectedItem');
               }
             });
           }

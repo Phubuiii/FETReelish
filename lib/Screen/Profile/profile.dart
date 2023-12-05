@@ -12,15 +12,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: UserProfilePage(),
-      routes: {
-      '/profile': (context) =>UserProfilePage(), 
-      '/lesson': (context) => LessonPage(),
-      '/course': (context) => CoursePage(),
-      '/home' :(context) => HomePage(),
-      }
-    );
+    return MaterialApp(home: UserProfilePage(), routes: {
+      '/Profile': (context) => UserProfilePage(),
+      '/Lesson': (context) => LessonPage(),
+      '/Course': (context) => CoursePage(),
+      '/Home': (context) => HomePage(),
+    });
   }
 }
 
@@ -180,7 +177,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
       child: DropdownButton(
         value: _selectedItem,
         items: [
-          'Menu', // Added 'Menu' as the first item
+          'Menu',
           'Home',
           'Course',
           'Lesson',
@@ -202,8 +199,10 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           if (newValue != null) {
             setState(() {
               _selectedItem = newValue;
-              // Add logic here for handling the selected item
-              print('Selected item: $_selectedItem');
+              if (_selectedItem != 'Menu') {
+                // Navigate to the selected route
+                Navigator.pushReplacementNamed(context, '/$_selectedItem');
+              }
             });
           }
         },
